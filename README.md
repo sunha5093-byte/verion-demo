@@ -25,3 +25,5 @@ localStorage에는 verion-public-demo-experience-v1 키의 version/completedCoun
 히어로 배경영상: verion-hero.mp4, hero-video.css, hero-video.js를 함께 배포하세요. 모든 경로는 상대경로입니다. 무음 자동 반복재생 및 모바일 인라인 재생을 적용하며, 재생 실패/자동재생 제한에서는 기존 정적 배경을 유지합니다. 영상 일시정지 버튼을 제공합니다.
 
 영상 재생 수정: preload=auto, 초기화 즉시 muted=true 후 play() 요청, 실패 시 콘솔 오류와 정적 fallback. 영상/오버레이/본문은 z-index 0/1/2로 분리하며 기본 영상은 opacity:1입니다. 이전 캐시 방지를 위해 영상 CSS/JS와 public.js에 버전 쿼리를 적용했습니다. public-demo 폴더 내용 전체로 기존 배포를 교체하세요.
+
+첫 화면 개편: 아이보리 배경에서 설명 54 / 영상 46의 2단 구성을 사용합니다. 영상은 오른쪽 아치형 프레임 안에서만 재생하며, 모바일은 설명·신청 버튼·310px 영상 순입니다. 영상 속성과 실패 시 정적 프레임 fallback은 유지합니다. 이전 전체 배경영상 설명보다 이 구성이 우선합니다.
