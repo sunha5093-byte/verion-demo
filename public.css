@@ -89,3 +89,6 @@
 @media(max-width:380px){.public-hero h1{font-size:36px}.public-nav{gap:10px}.public-nav .public-btn{padding-inline:11px}}
 @media(prefers-reduced-motion:reduce){.public-btn,.public-nav a{transition:none}.public-btn:hover,.public-nav .public-btn:hover{transform:none}}
 
+
+/* 대표자 실명은 푸터의 보조 정보로만 표시합니다. */
+.public-footer .verion-footer-representative{font-size:11px;line-height:1.9;letter-spacing:.15px;color:#596551;margin-top:10px;font-weight:400}.public-operator .operator-biography{margin:0 0 19px;line-height:2.05}.public-operator .operator-biography:last-of-type{margin-bottom:20px}@media(max-width:700px){.public-footer .verion-footer-representative{font-size:11px}.public-operator .operator-biography{margin-bottom:17px}}
