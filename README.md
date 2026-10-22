@@ -3,7 +3,7 @@
 배포 대상: **이 public-demo 폴더의 내용만**.
 시작 파일: **index.html**. 첫 접속은 고객 홈페이지입니다.
 
-포함 파일: index.html, base.css, public.css, public.js, demo.js, 이 안내 파일.
+포함 파일: index.html, base.css, public.css, customer-menu.css, customer-menu.js, public.js, demo.js, 이 안내 파일.
 서버 실행·빌드·설치·환경변수·API 키가 필요 없는 정적 사이트입니다.
 정적 호스팅에서 배포/출력 디렉터리를 public-demo로 지정하거나 이 폴더 내용만 업로드하세요. 프로젝트 루트 전체를 올리지 마세요.
 SPA 재작성 설정 없이 #public / #consult / #apply 해시 경로로 이동합니다.
@@ -19,3 +19,5 @@ localStorage에는 verion-public-demo-experience-v1 키의 version/completedCoun
 공유 미리보기용 제목/설명을 포함하고 검색 수집은 noindex,nofollow로 요청합니다. 호스팅·메신저의 캐시에 따라 미리보기 반영은 달라질 수 있습니다.
 
 사업자번호·신고번호·실제 주소·가격 등 미확정 정보를 만들지 않았습니다. 실제 고객 접수용으로 사용하지 마세요.
+
+상단 6개 메뉴는 PC에서 호버/클릭으로 열고, 모바일에서는 햄버거 버튼과 아코디언으로 사용합니다. 30개 하위 링크는 기존 섹션·신청 폼·별도 시연 안내로 연결됩니다. 이야기/공지와 개인정보 처리방침·이용약관은 준비 중인 시연용 안내이며 허구의 후기나 확정 정책을 만들지 않았습니다.

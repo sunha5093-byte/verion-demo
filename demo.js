@@ -4,8 +4,8 @@ const ExperienceStore=(()=>{
  return {complete(){try{const old=JSON.parse(localStorage.getItem(key)||'{}');memoryCount=Number.isInteger(old.completedCount)&&old.completedCount>=0?Math.min(old.completedCount+1,999999):1;localStorage.setItem(key,JSON.stringify({version:1,completedCount:memoryCount}));}catch{memoryCount++;}return memoryCount;}};
 })();
 function publicSuccess(){return publicHeader()+'<section class="public-success"><div class="success-seal">✓</div><div class="public-kicker">VERION · DEMONSTRATION</div><h1>신청 완료 화면입니다.</h1><p>시연용 접수 체험이 완료되었습니다.<br>실제로 접수되거나 담당자에게 전송되지 않았습니다.</p><p class="public-field-help">입력 내용은 저장하지 않았습니다.<br>이 페이지는 사업계획 검토를 위한 고객 화면 데모입니다.</p><a class="public-btn" href="#public">홈으로 돌아가기</a></section>'+publicFooter();}
-function go(route){const valid=['public','apply','consult','application-complete'];route=valid.includes(route)?route:'public';location.hash='#'+route;renderPublic(route);}
-function renderPublic(route){
+function go(route){const valid=['public','apply','consult','application-complete'];route=valid.includes(route)||isVerionInfoRoute(route)?route:'public';location.hash='#'+route;renderPublic(route);}
+function renderPublic(route){if(isVerionInfoRoute(route)){renderVerionInfoPage(route);return;}
  if(route==='application-complete'&&!applicationComplete)route='public';
  document.title='베리온 | VERION · 외부 시연';
  const root=$('#public-root');root.innerHTML=route==='public'?publicHome():route==='application-complete'?publicSuccess():publicForm(route);
@@ -29,5 +29,5 @@ function fillDemoStage(form){
  for(const [key,value] of Object.entries(sample))if(form.elements[key]){form.elements[key].value=value;form.elements[key].dispatchEvent(new Event('input',{bubbles:true}));}
 }
 document.addEventListener('click',event=>{const link=event.target.closest('[data-scroll-public]');if(link){event.preventDefault();go('public');$('#public-principles')?.scrollIntoView?.({behavior:'smooth'});}});
-function renderRoute(){const hash=location.hash.slice(1);if(hash==='public-principles'){renderPublic('public');$('#public-principles')?.scrollIntoView?.();return;}if(!['public','apply','consult','application-complete'].includes(hash)){go('public');return;}renderPublic(hash);}
+function renderRoute(){const hash=location.hash.slice(1);if(isVerionInfoRoute(hash)){renderVerionInfoPage(hash);return;}if(hash==='public-principles'){renderPublic('public');$('#public-principles')?.scrollIntoView?.();return;}if(!['public','apply','consult','application-complete'].includes(hash)){go('public');return;}renderPublic(hash);}
 window.addEventListener('hashchange',renderRoute);renderRoute();
