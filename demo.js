@@ -9,7 +9,7 @@ function renderPublic(route){if(isVerionInfoRoute(route)){renderVerionInfoPage(r
  if(route==='application-complete'&&!applicationComplete)route='public';
  document.title='베리온 | VERION · 외부 시연';
  const root=$('#public-root');root.innerHTML=route==='public'?publicHome():route==='application-complete'?publicSuccess():publicForm(route);
- const form=$('#publicApplicationForm');if(!form)return;
+ initializeHeroVideo(root);const form=$('#publicApplicationForm');if(!form)return;
  const fillButton=document.createElement('button');fillButton.type='button';fillButton.className='demo-fill';fillButton.textContent='가상 정보로 이 단계 채우기';form.prepend(fillButton);fillButton.onclick=()=>fillDemoStage(form);
  form.addEventListener('input',event=>refreshPublicField(form,event.target));form.addEventListener('change',event=>refreshPublicField(form,event.target));
  const phone=form.elements.phone;if(phone)phone.addEventListener('input',()=>{phone.value=formatPublicPhone(phone.value)});
